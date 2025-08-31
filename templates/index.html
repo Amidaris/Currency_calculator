@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator walut</title>
+</head>
+<body>
+    <h1>Kalkulator walut NBP</h1>
+    <form method="POST">
+        <label for="currency">Wybierz walutę:</label>
+        <select name="currency" id="currency">
+            {% for code in currency_codes %}
+                <option value="{{ code }}">{{ code }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="amount">Ilość waluty:</label>
+        <input type="number" name="amount" id="amount" required>
+
+        <br><br>
+
+        <button type="submit">Przelicz</button>
+    </form>
+
+    {% if result %}
+        <h2>Wynik:</h2>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
